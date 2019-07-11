@@ -1,4 +1,4 @@
-from PyQt5.QtWidgets import QApplication,QWidget,QPushButton,QCheckBox,QSlider,QLabel
+from PyQt5.QtWidgets import QApplication,QWidget,QPushButton,QCheckBox,QSlider,QLabel,QLCDNumber
 from PyQt5.QtGui import QIcon,QPixmap
 from PyQt5.QtCore import Qt
 
@@ -35,6 +35,14 @@ pixmap = QPixmap('bg3.jpg')
 window.label.setPixmap(pixmap)
 
 window.label.setScaledContents(True)
+
+window.lcd = QLCDNumber(window)
+
+window.lcd.setGeometry(50,300,200,100)
+
+window.qslider.valueChanged.connect(window.lcd.display)
+
+window.button.clicked.connect(window.close)
 
 
 window.show()
